@@ -3,8 +3,8 @@ import './App.css';
 import styled from 'styled-components';
 
 import Header from './Components/Header';
-import Checkbox from './Components/Checkbox';
-import Button from './Components/Button';
+import Todo from './Components/Todo';
+
 
 const StyledMain = styled.main`
   background: #fff;
@@ -19,9 +19,7 @@ const App = () => {
   return (
     <StyledMain>
       <Header title="React-TODO" />
-      <Checkbox />
-      <Button name="Edit" />
-      <Button name="Delete" />
+      <Todo title="Купить БИРРРРР" />
     </StyledMain>
   );
 };

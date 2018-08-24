@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StyledInput = styled.input`
-  margin-left: 15px;
+  margin: 0px 15px;
   height: 15px;
   width: 15px;
     &:hover {
