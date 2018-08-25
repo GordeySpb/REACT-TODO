@@ -20,6 +20,18 @@ const StyledSpan = styled.span`
   margin-right: auto;
 `;
 
+const StyledForm = styled.form`
+  display: flex;
+  font-size: 1rem;
+  padding: .85em;
+  border-top: 1px solid rgba(0,0,0,.1);
+  align-items: center;
+`;
+
+const StyledInput = styled.input`
+  flex: 1;
+  outline: 1px solid #61dafb;    
+`;
 
 class Todo extends React.Component {
   constructor(props) {
@@ -28,18 +40,50 @@ class Todo extends React.Component {
     this.state = {
       condition: false,
     };
+
+    this.handleEdit = this.handleEdit.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  render() {
+  // componentWillMount() {
+  //   this.setState({ condition: true });
+  // }
+
+  handleEdit() {
+    this.setState({ condition: true });
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    this.setState({ condition: false });
+  }
+
+  renderDisplay() {
     const { title } = this.props;
     return (
       <StyledTodo>
         <Checkbox />
         <StyledSpan>{title}</StyledSpan>
-        <Button name="Edit" />
+        <Button name="Edit" onClick={this.handleEdit} />
         <Button name="Delete" />
       </StyledTodo>
     );
+  }
+
+  renderForm() {
+    const { title } = this.props;
+    return (
+      <StyledForm onSubmit={this.handleSubmit}>
+        <Checkbox />
+        <StyledInput type="text" defaultValue={title} />
+        <Button name="Save" />
+      </StyledForm>
+    );
+  }
+
+  render() {
+    const { condition } = this.state;
+    return condition ? this.renderForm() : this.renderDisplay();
   }
 }
 

@@ -3,7 +3,8 @@ import './App.css';
 import styled from 'styled-components';
 
 import Header from './Components/Header';
-import Todo from './Components/Todo';
+import List from './Components/List';
+import Form from './Components/Form';
 
 
 const StyledMain = styled.main`
@@ -15,12 +16,11 @@ const StyledMain = styled.main`
   box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
 `;
 
-const App = () => {
-  return (
-    <StyledMain>
-      <Header title="React-TODO" />
-      <Todo title="Купить БИРРРРР" />
-    </StyledMain>
-  );
-};
+const App = () => (
+  <StyledMain>
+    <Header title="React-TODO" />
+    <List />
+    <Form />
+  </StyledMain>
+);
 export default App;
