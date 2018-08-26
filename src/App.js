@@ -1,10 +1,9 @@
 import React from 'react';
-import './App.css';
 import styled from 'styled-components';
 
 import Header from './Components/Header';
-import List from './Components/List';
-import Form from './Components/Form';
+import ListContainer from './Containers/ListContainer';
+import FormContainer from './Containers/FormContainer';
 
 
 const StyledMain = styled.main`
@@ -19,8 +18,8 @@ const StyledMain = styled.main`
 const App = () => (
   <StyledMain>
     <Header title="React-TODO" />
-    <List />
-    <Form />
+    <ListContainer />
+    <FormContainer />
   </StyledMain>
 );
 export default App;

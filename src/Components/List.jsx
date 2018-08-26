@@ -8,14 +8,30 @@ const StyledSection = styled.section`
 
 `;
 
-const List = ({ todos }) => (
-  <StyledSection>
-    {todos.map((todo) => {
-      <Todo key={todo.id} title="жвжыжв"/>;
-    })
+const StyledDiv = styled.div`
+  text-align: center;
+`;
+
+function List({ todos, onDelete }) {
+  console.log(onDelete)
+  return (
+    <StyledSection>
+      {todos.length
+        ? todos.map(todo => (
+          <Todo
+            key={todo.id}
+            id={todo.id}
+            title={todo.title}
+            completed={todo.completed}
+            onDelete={onDelete}
+          />
+        ))
+        : <StyledDiv>Загрузка...</StyledDiv>
     }
-  </StyledSection>
-);
+    </StyledSection>
+  );
+}
+
 
 List.propTypes = {
   todos: PropTypes.arrayOf(PropTypes.object).isRequired,

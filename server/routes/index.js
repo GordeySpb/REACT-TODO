@@ -8,13 +8,15 @@ let todos = [];
  * Method for adding todo
  */
 router.post('/api/addTodo', (req, res) => {
-  const { name } = req.body;
+  const { title } = req.body;
+
 
   const todo = {
     id: Date.now(),
-    name,
+    title,
     completed: false,
   };
+
 
   todos = [...todos, todo];
   setTimeout(() => {
@@ -22,7 +24,7 @@ router.post('/api/addTodo', (req, res) => {
   }, 300);
 });
 
-router.post('/api/delTodo', (req, res) => {
+router.delete('/api/delTodo/:id', (req, res) => {
   const todo = req.body;
 
   todos = todos.filter(elem => elem.id !== todo.id);

@@ -43,11 +43,9 @@ class Todo extends React.Component {
 
     this.handleEdit = this.handleEdit.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
-  // componentWillMount() {
-  //   this.setState({ condition: true });
-  // }
 
   handleEdit() {
     this.setState({ condition: true });
