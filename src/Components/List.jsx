@@ -13,7 +13,6 @@ const StyledDiv = styled.div`
 `;
 
 function List({ todos, onDelete }) {
-  console.log(onDelete)
   return (
     <StyledSection>
       {todos.length
@@ -35,6 +34,7 @@ function List({ todos, onDelete }) {
 
 List.propTypes = {
   todos: PropTypes.arrayOf(PropTypes.object).isRequired,
+  onDelete: PropTypes.func.isRequired,
 };
 
 export default List;

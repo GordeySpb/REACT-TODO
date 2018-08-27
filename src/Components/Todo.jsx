@@ -56,6 +56,12 @@ class Todo extends React.Component {
     this.setState({ condition: false });
   }
 
+  handleDelete() {
+    const { onDelete } = this.props;
+    const { id } = this.props;
+    onDelete(id);
+  }
+
   renderDisplay() {
     const { title } = this.props;
     return (
@@ -63,7 +69,7 @@ class Todo extends React.Component {
         <Checkbox />
         <StyledSpan>{title}</StyledSpan>
         <Button name="Edit" onClick={this.handleEdit} />
-        <Button name="Delete" />
+        <Button name="Delete" onClick={this.handleDelete} />
       </StyledTodo>
     );
   }
@@ -87,6 +93,8 @@ class Todo extends React.Component {
 
 Todo.propTypes = {
   title: PropTypes.string.isRequired,
+  onDelete: PropTypes.func.isRequired,
+  id: PropTypes.number.isRequired,
 };
 
 export default Todo;

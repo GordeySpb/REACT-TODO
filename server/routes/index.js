@@ -9,8 +9,6 @@ let todos = [];
  */
 router.post('/api/addTodo', (req, res) => {
   const { title } = req.body;
-
-
   const todo = {
     id: Date.now(),
     title,
@@ -25,12 +23,11 @@ router.post('/api/addTodo', (req, res) => {
 });
 
 router.delete('/api/delTodo/:id', (req, res) => {
-  const todo = req.body;
-
-  todos = todos.filter(elem => elem.id !== todo.id);
+  const { id } = req.params;
+  todos = todos.filter(elem => elem.id !== +id);
 
   setTimeout(() => {
-    res.json({ success: true });
+    res.json({ id });
   }, 300);
 });
 

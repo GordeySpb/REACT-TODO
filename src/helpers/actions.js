@@ -19,6 +19,7 @@ export function addTodo(title) {
 }
 
 export function deleteTodo(id) {
-  return axios.delete(`api/todos/${id}`)
-    .then(() => deleteAction);
+  return axios.delete(`api/delTodo/${id}`)
+    .then(res => res.data)
+    .then(deleteAction);
 }
