@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const StyledInput = styled.input`
@@ -10,8 +11,12 @@ const StyledInput = styled.input`
     }
 `;
 
-const Checkbox = () => (
-  <StyledInput type="checkbox" />
+const Checkbox = ({ onChange }) => (
+  <StyledInput type="checkbox" onClick={onChange} />
 );
+
+Checkbox.propTypes = {
+  onChange: PropTypes.func.isRequired,
+};
 
 export default Checkbox;

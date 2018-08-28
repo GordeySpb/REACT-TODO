@@ -28,3 +28,15 @@ export function updateTodo(id, title) {
     .then(res => res.data)
     .then(toggleAction);
 }
+
+export function toggleTodo(id) {
+  return axios.patch(`api/toggleTodo/${id}`)
+    .then(res => res.data)
+    .then(toggleAction);
+}
+
+export function addTodos() {
+  return axios.get('/api/getTodos')
+    .then(res => res.data)
+    .then(addTodosAction);
+}

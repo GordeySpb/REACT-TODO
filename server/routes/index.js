@@ -49,20 +49,21 @@ router.put('/api/updateTodo/:id', (req, res) => {
   }, 300);
 });
 
-router.post('/api/toggleComplete', (req, res) => {
-  const todo = req.body;
+router.patch('/api/toggleTodo/:id', (req, res) => {
+  const { id } = req.params;
+
 
   todos = todos.map((item) => {
-    if (item.id === todo.id) {
+    if (item.id === +id) {
       return { ...item, completed: !item.completed };
     }
     return item;
   });
 
-  const newTodo = todos.find(elem => elem.id === todo.id);
+  const newTodo = todos.find(elem => elem.id === +id);
 
   setTimeout(() => {
-    res.json({ success: true, todo: newTodo });
+    res.json(newTodo);
   }, 300);
 });
 

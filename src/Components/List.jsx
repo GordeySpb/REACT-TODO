@@ -12,7 +12,9 @@ const StyledDiv = styled.div`
   text-align: center;
 `;
 
-function List({ todos, onDelete, onEdit }) {
+function List({
+  todos, onDelete, onEdit, onToggle,
+}) {
   return (
     <StyledSection>
       {todos.length
@@ -24,6 +26,7 @@ function List({ todos, onDelete, onEdit }) {
             completed={todo.completed}
             onDelete={onDelete}
             onEdit={onEdit}
+            onToggle={onToggle}
           />
         ))
         : <StyledDiv>Загрузка...</StyledDiv>
@@ -37,6 +40,7 @@ List.propTypes = {
   todos: PropTypes.arrayOf(PropTypes.object).isRequired,
   onDelete: PropTypes.func.isRequired,
   onEdit: PropTypes.func.isRequired,
+  onToggle: PropTypes.func.isRequired,
 };
 
 export default List;
