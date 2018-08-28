@@ -3,7 +3,6 @@ import axios from 'axios';
 export const ADD_TODOS = 'ADD_TODOS';
 export const ADD_TODO = 'ADD_TODO';
 export const DELETE = 'DELETE';
-export const UPDATE = 'UPDATE';
 export const TOGGLE = 'TOGGLE';
 
 
@@ -22,4 +21,10 @@ export function deleteTodo(id) {
   return axios.delete(`api/delTodo/${id}`)
     .then(res => res.data)
     .then(deleteAction);
+}
+
+export function updateTodo(id, title) {
+  return axios.put(`api/updateTodo/${id}`, { title })
+    .then(res => res.data)
+    .then(toggleAction);
 }

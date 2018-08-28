@@ -8,7 +8,7 @@ const StyledForm = styled.form`
   display: flex;
   background-color: #FAFAFA;
   border-top: 1px solid rgba(0,0,0,.1);
-  padding: 10px;
+  padding: 15px;
 `;
 
 const StyledInput = styled.input`
@@ -16,7 +16,8 @@ const StyledInput = styled.input`
   outline: none;
   transition: all .2s;
   outline: 1px solid #61dafb; 
-  padding-left: 15px;
+  padding: 8px;
+  border: none;
 `;
 
 class Form extends React.Component {

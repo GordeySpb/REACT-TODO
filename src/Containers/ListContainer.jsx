@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 import List from '../Components/List';
-import { deleteTodo } from '../helpers/actions';
+import { deleteTodo, updateTodo } from '../helpers/actions';
 
 
 const mapStateToProps = ({ todos }) => ({ todos });
@@ -9,6 +9,7 @@ const mapStateToProps = ({ todos }) => ({ todos });
 function mapDispatchToProps(dispatch) {
   return {
     onDelete: id => dispatch(deleteTodo(id)),
+    onEdit: (id, title) => dispatch(updateTodo(id, title)),
   };
 }
 

@@ -31,21 +31,21 @@ router.delete('/api/delTodo/:id', (req, res) => {
   }, 300);
 });
 
-router.post('/api/updateTodo', (req, res) => {
-  const todo = req.body;
+router.put('/api/updateTodo/:id', (req, res) => {
+  const { id } = req.params;
+  const { title } = req.body;
 
   todos = todos.map((item) => {
-    if (item.id === todo.id) {
-      return { ...item, name: todo.name };
+    if (item.id === +id) {
+      return { ...item, title };
     }
-
     return item;
   });
 
-  const newTodo = todos.find(elem => elem.id === todo.id);
+  const newTodo = todos.find(elem => elem.id === +id);
 
   setTimeout(() => {
-    res.json({ success: true, todo: newTodo });
+    res.json(newTodo);
   }, 300);
 });
 

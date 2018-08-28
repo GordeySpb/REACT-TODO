@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+
 import Checkbox from './Checkbox';
 import Button from './Button';
 
@@ -30,12 +31,16 @@ const StyledForm = styled.form`
 
 const StyledInput = styled.input`
   flex: 1;
-  outline: 1px solid #61dafb;    
+  padding: 8px;
+  outline: 1px solid #61dafb; 
+  border: none;   
 `;
+
 
 class Todo extends React.Component {
   constructor(props) {
     super(props);
+    this.textInput = React.createRef();
 
     this.state = {
       condition: false,
@@ -52,7 +57,11 @@ class Todo extends React.Component {
   }
 
   handleSubmit(event) {
+    const { onEdit, id } = this.props;
     event.preventDefault();
+
+    const title = this.textInput.current.value;
+    onEdit(id, title);
     this.setState({ condition: false });
   }
 
@@ -79,8 +88,8 @@ class Todo extends React.Component {
     return (
       <StyledForm onSubmit={this.handleSubmit}>
         <Checkbox />
-        <StyledInput type="text" defaultValue={title} />
-        <Button name="Save" />
+        <StyledInput type="text" innerRef={this.textInput} defaultValue={title} />
+        <Button name="Save" onClick={this.handleSubmit} />
       </StyledForm>
     );
   }
@@ -95,6 +104,7 @@ Todo.propTypes = {
   title: PropTypes.string.isRequired,
   onDelete: PropTypes.func.isRequired,
   id: PropTypes.number.isRequired,
+  onEdit: PropTypes.func.isRequired,
 };
 
 export default Todo;
