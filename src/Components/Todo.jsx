@@ -6,19 +6,16 @@ import styled from 'styled-components';
 import Checkbox from './Checkbox';
 import Button from './Button';
 
-const StyledTodo = styled.div`
-  display: flex;
-  font-size: 1rem;
-  border-top: 1px solid rgba(0,0,0,.1);
-  background-color: #fff;
-  -webkit-user-select: none;
-  user-select: none;
-  padding: 1em;
-  align-items: center;
-`;
 
 const StyledSpan = styled.span`
   margin-right: auto;
+  ${({ completed }) => (completed
+    ? `text-decoration: line-through;
+        flex: 1;
+        color: lightgray;
+      `
+    : '')
+}
 `;
 
 const StyledForm = styled.form`
@@ -36,13 +33,8 @@ const StyledInput = styled.input`
   border: none;
 `;
 
-const StyledSpanCompleted = styled.span`
-  text-decoration: line-through;
-  flex: 1;
-`;
 
 const StyledTodoCompleted = styled.div`
-  color: lightgray;
   transition: color .2s;
   display: flex;
   font-size: 1rem;
@@ -52,19 +44,30 @@ const StyledTodoCompleted = styled.div`
   user-select: none;
   padding: 1em;
   align-items: center;
+  ${({ completed }) => (completed
+    ? `
+        flex: 1;
+        color: lightgray;
+      `
+    : '')
+}
+
+}
 `;
 
-const StyledBytton = styled.button`
-  font-weight: bold;
-  font-size: 15px;
-  border-radius: 3px;
-  background-color: #ddd;
-  margin-left: 10px;
-  border: none;
-  height: 25px;
-  width: 60px;
-  color: red;
-  box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
+const StyledButton = styled(Button)`
+  ${({ completed }) => (completed
+    ? ` 
+    background-color: #ddd;
+    color: #fff;
+    &:hover 
+      cursor pointer;
+      background-color: #cecaca;
+      text-decoration: none;
+      `
+    : '')
+}
+
 `;
 
 
@@ -113,24 +116,12 @@ class Todo extends React.Component {
     const { completed } = this.props;
     return (
       <div>
-        {completed
-          ? (
-            <StyledTodoCompleted>
-              <Checkbox onChange={this.handleToggle} />
-              <StyledSpanCompleted>{title}</StyledSpanCompleted>
-              <StyledBytton name="Edit" onClick={this.handleEdit} />
-              <StyledBytton name="Delete" onClick={this.handleDelete} />
-            </StyledTodoCompleted>
-          )
-          : (
-            <StyledTodo>
-              <Checkbox onChange={this.handleToggle} />
-              <StyledSpan>{title}</StyledSpan>
-              <Button name="Edit" onClick={this.handleEdit} />
-              <Button name="Delete" onClick={this.handleDelete} />
-            </StyledTodo>
-          )
-        }
+        <StyledTodoCompleted completed={completed}>
+          <Checkbox onChange={this.handleToggle} />
+          <StyledSpan completed={completed}>{title}</StyledSpan>
+          <StyledButton name="Edit" onClick={this.handleEdit} completed={completed} />
+          <StyledButton name="Delete" onClick={this.handleDelete} completed={completed} />
+        </StyledTodoCompleted>
       </div>
     );
   }
@@ -139,7 +130,6 @@ class Todo extends React.Component {
     const { title } = this.props;
     return (
       <StyledForm onSubmit={this.handleSubmit}>
-        <Checkbox />
         <StyledInput type="text" innerRef={this.textInput} defaultValue={title} />
         <Button name="Save" onClick={this.handleSubmit} />
       </StyledForm>

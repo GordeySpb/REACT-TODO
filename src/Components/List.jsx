@@ -4,9 +4,6 @@ import styled from 'styled-components';
 
 import Todo from './Todo';
 
-const StyledSection = styled.section`
-
-`;
 
 const StyledDiv = styled.div`
   text-align: center;
@@ -16,7 +13,7 @@ function List({
   todos, onDelete, onEdit, onToggle,
 }) {
   return (
-    <StyledSection>
+    <section>
       {todos.length
         ? todos.map(todo => (
           <Todo
@@ -29,9 +26,9 @@ function List({
             onToggle={onToggle}
           />
         ))
-        : <StyledDiv>Загрузка...</StyledDiv>
+        : <StyledDiv>Loading...</StyledDiv>
     }
-    </StyledSection>
+    </section>
   );
 }
 

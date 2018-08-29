@@ -18,12 +18,13 @@ const StyledH1 = styled.h1`
   margin: 1rem auto;
 `;
 
-const Header = ({ title }) => (
-  <StyledHeader>
-    <StyledH1>{title}</StyledH1>
-  </StyledHeader>
-
-);
+function Header({ title }) {
+  return (
+    <StyledHeader>
+      <StyledH1>{title}</StyledH1>
+    </StyledHeader>
+  );
+}
 
 
 Header.propTypes = {
