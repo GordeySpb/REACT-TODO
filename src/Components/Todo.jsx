@@ -117,7 +117,7 @@ class Todo extends React.Component {
     return (
       <div>
         <StyledTodoCompleted completed={completed}>
-          <Checkbox onChange={this.handleToggle} />
+          <Checkbox onChange={this.handleToggle} completed={completed} />
           <StyledSpan completed={completed}>{title}</StyledSpan>
           <StyledButton name="Edit" onClick={this.handleEdit} completed={completed} />
           <StyledButton name="Delete" onClick={this.handleDelete} completed={completed} />

@@ -9,6 +9,7 @@ const StyledForm = styled.form`
   background-color: #FAFAFA;
   border-top: 1px solid rgba(0,0,0,.1);
   padding: 15px;
+  align-items: center;
 `;
 
 const StyledInput = styled.input`
