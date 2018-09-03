@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import List from '../Components/List';
+import List from '../components/List';
 import { deleteTodo, updateTodo, toggleTodo } from '../helpers/actions';
 
 

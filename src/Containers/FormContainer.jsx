@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 import { addTodo } from '../helpers/actions';
-import Form from '../Components/Form';
+import Form from '../components/Form';
 
 // const mapStateToProps = ({ title }) => ({ title });
 
