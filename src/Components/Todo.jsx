@@ -76,7 +76,7 @@ class Todo extends React.Component {
     this.textInput = React.createRef();
 
     this.state = {
-      condition: false,
+      isEditing: false,
     };
 
     this.handleEdit = this.handleEdit.bind(this);
@@ -87,7 +87,7 @@ class Todo extends React.Component {
 
 
   handleEdit() {
-    this.setState({ condition: true });
+    this.setState({ isEditing: true });
   }
 
   handleSubmit(event) {
@@ -96,7 +96,7 @@ class Todo extends React.Component {
 
     const title = this.textInput.current.value;
     onEdit(id, title);
-    this.setState({ condition: false });
+    this.setState({ isEditing: false });
   }
 
   handleDelete() {
@@ -136,8 +136,8 @@ class Todo extends React.Component {
   }
 
   render() {
-    const { condition } = this.state;
-    return condition ? this.renderForm() : this.renderDisplay();
+    const { isEditing } = this.state;
+    return isEditing ? this.renderForm() : this.renderDisplay();
   }
 }
 
