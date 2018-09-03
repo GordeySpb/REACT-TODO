@@ -19,12 +19,9 @@ const StyledButton = styled.button`
     }
 `;
 
-function Button(props) {
-  const { name, onClick } = props;
-  return (
-    <StyledButton type="button" onClick={onClick} {...props}>{name}</StyledButton>
-  );
-}
+const Button = ({ name, onClick }) => (
+  <StyledButton type="button" onClick={onClick}>{name}</StyledButton>
+);
 
 Button.propTypes = {
   name: PropTypes.string.isRequired,
