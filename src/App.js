@@ -2,9 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 
 
-import Header from './Components/Header';
-import ListContainer from './Containers/ListContainer';
-import FormContainer from './Containers/FormContainer';
+import Header from './components/Header';
+import ListContainer from './containers/ListContainer';
+import FormContainer from './containers/FormContainer';
 
 
 const StyledMain = styled.main`

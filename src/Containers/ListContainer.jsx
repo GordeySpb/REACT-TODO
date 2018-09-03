@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 import List from '../components/List';
-import { deleteTodo, updateTodo, toggleTodo } from '../helpers/actions';
+import { deleteTodo, updateTodo, toggleTodo } from '../actions/index';
 
 
 const mapStateToProps = ({ todos }) => ({ todos });

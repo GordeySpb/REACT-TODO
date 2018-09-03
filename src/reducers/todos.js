@@ -1,6 +1,6 @@
 import {
   ADD_TODOS, ADD_TODO, DELETE, TOGGLE,
-} from '../helpers/actions';
+} from '../actions';
 
 const initialState = [];
 
