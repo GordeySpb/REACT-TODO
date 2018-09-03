@@ -100,8 +100,7 @@ class Todo extends React.Component {
   }
 
   handleDelete() {
-    const { onDelete } = this.props;
-    const { id } = this.props;
+    const { onDelete, id } = this.props;
     onDelete(id);
   }
 
