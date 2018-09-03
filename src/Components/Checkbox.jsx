@@ -11,11 +11,9 @@ const StyledInput = styled.input`
     }
 `;
 
-function Checkbox({ onChange, completed }) {
-  return (
-    <StyledInput type="checkbox" onClick={onChange} checked={completed ? 'checked' : ''} />
-  );
-}
+const Checkbox = ({ onChange, completed }) => (
+  <StyledInput type="checkbox" onClick={onChange} checked={completed ? 'checked' : ''} />
+);
 
 Checkbox.propTypes = {
   onChange: PropTypes.func.isRequired,
