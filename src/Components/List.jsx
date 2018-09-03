@@ -9,28 +9,26 @@ const StyledDiv = styled.div`
   text-align: center;
 `;
 
-function List({
+const List = ({
   todos, onDelete, onEdit, onToggle,
-}) {
-  return (
-    <section>
-      {todos.length
-        ? todos.map(todo => (
-          <Todo
-            key={todo.id}
-            id={todo.id}
-            title={todo.title}
-            completed={todo.completed}
-            onDelete={onDelete}
-            onEdit={onEdit}
-            onToggle={onToggle}
-          />
-        ))
-        : <StyledDiv>Loading...</StyledDiv>
+}) => (
+  <section>
+    {todos.length
+      ? todos.map(todo => (
+        <Todo
+          key={todo.id}
+          id={todo.id}
+          title={todo.title}
+          completed={todo.completed}
+          onDelete={onDelete}
+          onEdit={onEdit}
+          onToggle={onToggle}
+        />
+      ))
+      : <StyledDiv>Loading...</StyledDiv>
     }
-    </section>
-  );
-}
+  </section>
+);
 
 
 List.propTypes = {
