@@ -36,10 +36,9 @@ class Form extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     const { title } = this.state;
-    const { onAdd } = this.props;
-
+    const { addTodo } = this.props;
     if (title) {
-      onAdd(title);
+      addTodo(title);
       this.setState({ title: '' });
     }
   }
@@ -66,7 +65,7 @@ class Form extends React.Component {
 }
 
 Form.propTypes = {
-  onAdd: PropTypes.func.isRequired,
+  addTodo: PropTypes.func.isRequired,
 };
 
 export default Form;
