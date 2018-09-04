@@ -4,12 +4,14 @@ export const ADD_TODOS = 'ADD_TODOS';
 export const ADD_TODO = 'ADD_TODO';
 export const DELETE = 'DELETE';
 export const TOGGLE = 'TOGGLE';
+export const SET_STATE = 'SET_STATE';
 
 
 export const addTodosAction = payload => ({ type: ADD_TODOS, payload });
 export const addTodoAction = payload => ({ type: ADD_TODO, payload });
 export const deleteAction = payload => ({ type: DELETE, payload });
 export const toggleAction = payload => ({ type: TOGGLE, payload });
+export const setState = payload => ({ type: SET_STATE, payload });
 
 export function addTodo(title) {
   return axios.post('/api/addTodo', { title })
