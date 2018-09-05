@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
 
 import todos from './todos';
-import condition from './condition';
+import preloader from './preloader';
 
 export default combineReducers({
   todos,
-  condition,
+  preloader,
 });
