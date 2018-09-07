@@ -11,19 +11,23 @@ export const addTodosAction = payload => ({ type: ADD_TODOS, payload });
 export const addTodoAction = payload => ({ type: ADD_TODO, payload });
 export const deleteAction = payload => ({ type: DELETE, payload });
 export const toggleAction = payload => ({ type: TOGGLE, payload });
-export const togglePreloader = payload => ({ type: SET_PRELOADER_STATE, payload });
+export const togglePreloaderAction = payload => ({ type: SET_PRELOADER_STATE, payload });
 
-export function addTodo(title) {
-  return axios.post('/api/addTodo', { title })
+export const addTodo = payload => (dispatch) => {
+  dispatch(togglePreloaderAction(true));
+  return axios.post('/api/addTodo', { payload })
     .then(res => res.data)
-    .then(addTodoAction);
-}
+    .then(todo => dispatch(addTodoAction(todo)))
+    .then(() => dispatch(togglePreloaderAction(false)));
+};
 
-export function deleteTodo(id) {
-  return axios.delete(`api/delTodo/${id}`)
+export const deleteTodo = payload => (dispatch) => {
+  dispatch(togglePreloaderAction(true));
+  return axios.delete(`api/delTodo/${payload}`)
     .then(res => res.data)
-    .then(deleteAction);
-}
+    .then(id => dispatch(deleteAction(id)))
+    .then(() => dispatch(togglePreloaderAction(false)));
+};
 
 export function updateTodo(id, title) {
   return axios.put(`api/updateTodo/${id}`, { title })

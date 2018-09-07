@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import Header from './components/Header';
 import ListContainer from './containers/ListContainer';
 import FormContainer from './containers/FormContainer';
+import PreloaderContainer from './containers/PreloaderContainer';
 
 
 const StyledMain = styled.main`
@@ -19,6 +20,7 @@ const StyledMain = styled.main`
 const App = () => (
   <StyledMain>
     <Header title="React-TODO" />
+    <PreloaderContainer />
     <ListContainer />
     <FormContainer />
   </StyledMain>

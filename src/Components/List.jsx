@@ -1,13 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 
 import Todo from './Todo';
 
-
-const StyledDiv = styled.div`
-  text-align: center;
-`;
 
 const List = ({
   todos, onDelete, onEdit, onToggle,
@@ -25,7 +20,7 @@ const List = ({
           onToggle={onToggle}
         />
       ))
-      : <StyledDiv>Loading...</StyledDiv>
+      : null
     }
   </section>
 );

@@ -5,7 +5,7 @@ import List from '../components/List';
 import { deleteTodo, updateTodo, toggleTodo } from '../actions/index';
 
 
-const mapStateToProps = ({ todos }) => ({ todos });
+const mapStateToProps = ({ todos, preloader }) => ({ todos, preloader });
 
 const mapDispatchToProps = dispatch => (
   bindActionCreators({

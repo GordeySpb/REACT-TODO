@@ -1,4 +1,4 @@
-import { SET_PRELOADER_STATE } from '../actions/index';
+import { SET_PRELOADER_STATE } from '../actions';
 
 const initialState = false;
 

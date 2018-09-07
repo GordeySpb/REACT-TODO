@@ -8,10 +8,10 @@ let todos = [];
  * Method for adding todo
  */
 router.post('/api/addTodo', (req, res) => {
-  const { title } = req.body;
+  const { payload } = req.body;
   const todo = {
     id: Date.now(),
-    title,
+    title: payload,
     completed: false,
   };
 
