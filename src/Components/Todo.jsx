@@ -90,12 +90,12 @@ class Todo extends React.Component {
     this.setState({ isEditing: true });
   }
 
-  handleSubmit(event) {
+  async handleSubmit(event) {
     const { onEdit, id } = this.props;
     event.preventDefault();
 
     const title = this.textInput.current.value;
-    onEdit({ id, title });
+    await onEdit({ id, title });
     this.setState({ isEditing: false });
   }
 
