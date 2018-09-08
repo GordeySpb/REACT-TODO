@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import List from '../components/List';
+import List from '../сomponents/List';
 import { deleteTodo, updateTodo, toggleTodo } from '../actions/index';
 
 

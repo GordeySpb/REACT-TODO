@@ -2,11 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 
 
-import Header from './components/Header';
-import ListContainer from './containers/ListContainer';
-import FormContainer from './containers/FormContainer';
-import PreloaderContainer from './containers/PreloaderContainer';
-import ErrorContainer from './containers/ErrorContainer';
+import Header from './сomponents/Header';
+import ListContainer from './сontainers/ListContainer';
+import FormContainer from './сontainers/FormContainer';
+import PreloaderContainer from './сontainers/PreloaderContainer';
+import ErrorContainer from './сontainers/ErrorContainer';
 
 
 const StyledMain = styled.main`
