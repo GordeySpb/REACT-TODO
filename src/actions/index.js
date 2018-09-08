@@ -43,8 +43,18 @@ export const toggleTodo = payload => (dispatch) => {
   dispatch(togglePreloaderAction(true));
   return axios.patch(`api/toggleTodo/${payload}`)
     .then(res => res.data)
-    .then(todo => dispatch(toggleAction(todo)))
-    .then(() => dispatch(togglePreloaderAction(false)));
+    .then((todo) => {
+      if (todo) {
+        dispatch(toggleAction(todo));
+      } else {
+        dispatch(toggleErrorAction(true));
+      }
+    })
+    .then(() => dispatch(togglePreloaderAction(false)))
+    .catch(() => {
+      dispatch(toggleErrorAction(true));
+      dispatch(togglePreloaderAction(false));
+    });
 };
 
 export const addTodos = () => (dispatch) => {
