@@ -29,20 +29,26 @@ export const deleteTodo = payload => (dispatch) => {
     .then(() => dispatch(togglePreloaderAction(false)));
 };
 
-export function updateTodo(id, title) {
-  return axios.put(`api/updateTodo/${id}`, { title })
+export const updateTodo = payload => (dispatch) => {
+  dispatch(togglePreloaderAction(true));
+  return axios.put('api/updateTodo', { payload })
     .then(res => res.data)
-    .then(toggleAction);
-}
+    .then(todo => dispatch(toggleAction(todo)))
+    .then(() => dispatch(togglePreloaderAction(false)));
+};
 
-export function toggleTodo(id) {
-  return axios.patch(`api/toggleTodo/${id}`)
+export const toggleTodo = payload => (dispatch) => {
+  dispatch(togglePreloaderAction(true));
+  return axios.patch(`api/toggleTodo/${payload}`)
     .then(res => res.data)
-    .then(toggleAction);
-}
+    .then(todo => dispatch(toggleAction(todo)))
+    .then(() => dispatch(togglePreloaderAction(false)));
+};
 
-export function addTodos() {
+export const addTodos = () => (dispatch) => {
+  dispatch(togglePreloaderAction(true));
   return axios.get('/api/getTodos')
     .then(res => res.data)
-    .then(addTodosAction);
-}
+    .then(todos => dispatch(addTodosAction(todos)))
+    .then(() => dispatch(togglePreloaderAction(false)));
+};

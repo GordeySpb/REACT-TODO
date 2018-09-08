@@ -31,9 +31,8 @@ router.delete('/api/delTodo/:id', (req, res) => {
   }, 300);
 });
 
-router.put('/api/updateTodo/:id', (req, res) => {
-  const { id } = req.params;
-  const { title } = req.body;
+router.put('/api/updateTodo', (req, res) => {
+  const { id, title } = req.body.payload;
 
   todos = todos.map((item) => {
     if (item.id === +id) {
@@ -51,7 +50,6 @@ router.put('/api/updateTodo/:id', (req, res) => {
 
 router.patch('/api/toggleTodo/:id', (req, res) => {
   const { id } = req.params;
-
 
   todos = todos.map((item) => {
     if (item.id === +id) {

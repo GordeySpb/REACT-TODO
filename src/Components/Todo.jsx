@@ -95,7 +95,7 @@ class Todo extends React.Component {
     event.preventDefault();
 
     const title = this.textInput.current.value;
-    onEdit(id, title);
+    onEdit({ id, title });
     this.setState({ isEditing: false });
   }
 
