@@ -5,6 +5,7 @@ export const ADD_TODO = 'ADD_TODO';
 export const DELETE = 'DELETE';
 export const TOGGLE = 'TOGGLE';
 export const SET_PRELOADER_STATE = 'SET_PRELOADER_STATE';
+export const SET_ERROR_STATE = 'SET_ERROR_STATE';
 
 
 export const addTodosAction = payload => ({ type: ADD_TODOS, payload });
@@ -12,6 +13,7 @@ export const addTodoAction = payload => ({ type: ADD_TODO, payload });
 export const deleteAction = payload => ({ type: DELETE, payload });
 export const toggleAction = payload => ({ type: TOGGLE, payload });
 export const togglePreloaderAction = payload => ({ type: SET_PRELOADER_STATE, payload });
+export const toggleErrorAction = payload => ({ type: SET_ERROR_STATE, payload });
 
 export const addTodo = payload => (dispatch) => {
   dispatch(togglePreloaderAction(true));
