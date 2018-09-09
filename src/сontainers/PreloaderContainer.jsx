@@ -4,6 +4,6 @@ import Preloader from '../сomponents/Preloader';
 
 const mapStateToProps = ({ preloader }) => ({ preloader });
 
-const PreloaderContainer = connect(mapStateToProps, null)(Preloader);
+const PreloaderContainer = connect(mapStateToProps)(Preloader);
 
 export default PreloaderContainer;
