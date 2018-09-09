@@ -67,9 +67,10 @@ export const updateTodo = payload => (dispatch) => {
       }
     })
     .then(() => dispatch(togglePreloaderAction(false)))
-    .catch(() => {
+    .catch((er) => {
       dispatch(toggleErrorAction(true));
       dispatch(togglePreloaderAction(false));
+      return Promise.reject(er);
     });
 };
 

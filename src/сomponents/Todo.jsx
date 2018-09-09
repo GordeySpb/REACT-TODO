@@ -93,9 +93,13 @@ class Todo extends React.Component {
   async handleSubmit(event) {
     const { onEdit, id } = this.props;
     event.preventDefault();
-
     const title = this.textInput.current.value;
-    await onEdit({ id, title });
+
+    try {
+      await onEdit({ id, title });
+    } catch (e) {
+      console.log('ooops');
+    }
     this.setState({ isEditing: false });
   }
 
@@ -112,6 +116,7 @@ class Todo extends React.Component {
   renderDisplay() {
     const { title } = this.props;
     const { completed } = this.props;
+
     return (
       <div>
         <StyledTodoCompleted completed={completed}>
@@ -126,6 +131,7 @@ class Todo extends React.Component {
 
   renderForm() {
     const { title } = this.props;
+
     return (
       <StyledForm onSubmit={this.handleSubmit}>
         <StyledInput type="text" innerRef={this.textInput} defaultValue={title} />
@@ -136,6 +142,7 @@ class Todo extends React.Component {
 
   render() {
     const { isEditing } = this.state;
+
     return isEditing ? this.renderForm() : this.renderDisplay();
   }
 }
@@ -148,5 +155,6 @@ Todo.propTypes = {
   onToggle: PropTypes.func.isRequired,
   completed: PropTypes.bool.isRequired,
 };
+
 
 export default Todo;
