@@ -18,7 +18,7 @@ export const toggleErrorAction = payload => ({ type: SET_ERROR_STATE, payload })
 export const addTodo = payload => (dispatch) => {
   dispatch(togglePreloaderAction(true));
 
-  return axios.post('/api/addTod', { payload })
+  return axios.post('/api/addTodo', { payload })
     .then(res => res.data)
     .then((todo) => {
       if (todo) {
