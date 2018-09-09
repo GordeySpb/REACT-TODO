@@ -56,6 +56,7 @@ class Form extends React.Component {
 
   render() {
     const { title } = this.state;
+
     return (
       <StyledForm>
         <StyledInput
