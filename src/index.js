@@ -9,7 +9,6 @@ import { addTodos } from './actions/index';
 
 store.dispatch(addTodos());
 
-
 ReactDOM.render(
   <Provider store={store}>
     <App />
