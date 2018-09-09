@@ -6,7 +6,6 @@ const StyledDiv = styled.div`
   text-align: center;
 `;
 
-
 const Error = ({ error }) => (error ? <StyledDiv>Error try again</StyledDiv> : null);
 
 Error.propTypes = {
