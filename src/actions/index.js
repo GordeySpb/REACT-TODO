@@ -17,30 +17,65 @@ export const toggleErrorAction = payload => ({ type: SET_ERROR_STATE, payload })
 
 export const addTodo = payload => (dispatch) => {
   dispatch(togglePreloaderAction(true));
-  return axios.post('/api/addTodo', { payload })
+
+  return axios.post('/api/addTod', { payload })
     .then(res => res.data)
-    .then(todo => dispatch(addTodoAction(todo)))
-    .then(() => dispatch(togglePreloaderAction(false)));
+    .then((todo) => {
+      if (todo) {
+        dispatch(addTodoAction(todo));
+      } else {
+        dispatch(toggleErrorAction(true));
+      }
+    })
+    .then(() => dispatch(togglePreloaderAction(false)))
+    .catch((er) => {
+      dispatch(toggleErrorAction(true));
+      dispatch(togglePreloaderAction(false));
+      return Promise.reject(er);
+    });
 };
 
 export const deleteTodo = payload => (dispatch) => {
   dispatch(togglePreloaderAction(true));
+
   return axios.delete(`api/delTodo/${payload}`)
     .then(res => res.data)
-    .then(id => dispatch(deleteAction(id)))
-    .then(() => dispatch(togglePreloaderAction(false)));
+    .then((id) => {
+      if (id) {
+        dispatch(deleteAction(id));
+      } else {
+        dispatch(toggleErrorAction(true));
+      }
+    })
+    .then(() => dispatch(togglePreloaderAction(false)))
+    .catch(() => {
+      dispatch(toggleErrorAction(true));
+      dispatch(togglePreloaderAction(false));
+    });
 };
 
 export const updateTodo = payload => (dispatch) => {
   dispatch(togglePreloaderAction(true));
+
   return axios.put('api/updateTodo', { payload })
     .then(res => res.data)
-    .then(todo => dispatch(toggleAction(todo)))
-    .then(() => dispatch(togglePreloaderAction(false)));
+    .then((todo) => {
+      if (todo) {
+        dispatch(toggleAction(todo));
+      } else {
+        dispatch(toggleErrorAction(true));
+      }
+    })
+    .then(() => dispatch(togglePreloaderAction(false)))
+    .catch(() => {
+      dispatch(toggleErrorAction(true));
+      dispatch(togglePreloaderAction(false));
+    });
 };
 
 export const toggleTodo = payload => (dispatch) => {
   dispatch(togglePreloaderAction(true));
+
   return axios.patch(`api/toggleTodo/${payload}`)
     .then(res => res.data)
     .then((todo) => {
@@ -61,6 +96,16 @@ export const addTodos = () => (dispatch) => {
   dispatch(togglePreloaderAction(true));
   return axios.get('/api/getTodos')
     .then(res => res.data)
-    .then(todos => dispatch(addTodosAction(todos)))
-    .then(() => dispatch(togglePreloaderAction(false)));
+    .then((todos) => {
+      if (todos) {
+        dispatch(addTodosAction(todos));
+      } else {
+        dispatch(toggleErrorAction(true));
+      }
+    })
+    .then(() => dispatch(togglePreloaderAction(false)))
+    .catch(() => {
+      dispatch(toggleErrorAction(true));
+      dispatch(togglePreloaderAction(false));
+    });
 };

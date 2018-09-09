@@ -33,12 +33,18 @@ class Form extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleSubmit(event) {
+  async handleSubmit(event) {
     event.preventDefault();
     const { title } = this.state;
     const { addTodo } = this.props;
+
     if (title) {
-      addTodo(title);
+      try {
+        await addTodo(title);
+      } catch (e) {
+        console.log('ooops');
+      }
+
       this.setState({ title: '' });
     }
   }
