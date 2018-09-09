@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import 'normalize.css';
 
-import store from './helpers/store';
+import store from './store/store';
 import App from './App';
 import { addTodos } from './actions/index';
 
