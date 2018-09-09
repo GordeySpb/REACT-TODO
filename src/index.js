@@ -5,7 +5,7 @@ import 'normalize.css';
 
 import store from './store/store';
 import App from './App';
-import { addTodos } from './actions/index';
+import { addTodos } from './actions';
 
 store.dispatch(addTodos());
 
