@@ -6,7 +6,10 @@ const StyledDiv = styled.div`
   text-align: center;
 `;
 
-
+/**
+ * Компонент блока загрузки todo
+ * @param {boolean} param.preloader состояние блока загрузки
+ */
 const Preloader = ({ preloader }) => (preloader ? <StyledDiv>Loading...</StyledDiv> : null);
 
 Preloader.propTypes = {

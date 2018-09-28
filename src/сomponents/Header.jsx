@@ -17,7 +17,10 @@ const StyledH1 = styled.h1`
   color: #fff;
   margin: 1rem auto;
 `;
-
+/**
+ * Создает Header
+ * @param {string} param0 title название приложения
+ */
 const Header = ({ title }) => (
   <StyledHeader>
     <StyledH1>{title}</StyledH1>

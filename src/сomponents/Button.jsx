@@ -18,7 +18,12 @@ const StyledButton = styled.button`
       background-color: #35cef4;
     }
 `;
-
+/**
+ * Компонент Button
+ * @param {string} param.name имя для кнопки
+ * @param {Function} param.onClick функция обратного вызова
+ *
+ */
 const Button = ({ name, onClick }) => (
   <StyledButton type="button" onClick={onClick}>{name}</StyledButton>
 );

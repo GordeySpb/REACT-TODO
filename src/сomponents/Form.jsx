@@ -20,7 +20,9 @@ const StyledInput = styled.input`
   padding: 8px;
   border: none;
 `;
-
+/** Компонент Form
+ * @param {Function} param.addTodo функция добавления todo
+ */
 class Form extends React.Component {
   constructor(props) {
     super(props);

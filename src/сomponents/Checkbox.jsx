@@ -10,7 +10,11 @@ const StyledInput = styled.input`
       cursor: pointer;
     }
 `;
-
+/**
+ * Кщмпонент Checkbox
+ * @param {Function} params.onChange функия уоторая сработает при клике на чекбокс
+ * @param {boolean} params.completed сведения о todo(выполнена или нет)
+ */
 const Checkbox = ({ onChange, completed }) => (
   <StyledInput type="checkbox" onClick={onChange} checked={completed ? 'checked' : ''} />
 );

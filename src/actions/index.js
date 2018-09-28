@@ -14,7 +14,10 @@ export const deleteAction = payload => ({ type: DELETE, payload });
 export const toggleAction = payload => ({ type: TOGGLE, payload });
 export const togglePreloaderAction = payload => ({ type: SET_PRELOADER_STATE, payload });
 export const toggleErrorAction = payload => ({ type: SET_ERROR_STATE, payload });
-
+/**
+ * Создает задачу
+ * @param {string} payload title название созданной задачи
+ */
 export const addTodo = payload => (dispatch) => {
   dispatch(togglePreloaderAction(true));
 
@@ -34,7 +37,10 @@ export const addTodo = payload => (dispatch) => {
       return Promise.reject(er);
     });
 };
-
+/**
+ * Удаляет выбранную todo
+ * @param {number} payload id выбранной todo
+ */
 export const deleteTodo = payload => (dispatch) => {
   dispatch(togglePreloaderAction(true));
 
@@ -53,7 +59,10 @@ export const deleteTodo = payload => (dispatch) => {
       dispatch(togglePreloaderAction(false));
     });
 };
-
+/**
+ * Редактирует выбранную todo
+ * @param {object} payload обьект с id и новым именем todo
+ */
 export const updateTodo = payload => (dispatch) => {
   dispatch(togglePreloaderAction(true));
 
@@ -73,7 +82,10 @@ export const updateTodo = payload => (dispatch) => {
       return Promise.reject(er);
     });
 };
-
+/**
+ * Помечает выбранную todo как выполненную
+ * @param {number} payload id выбранной todo
+ */
 export const toggleTodo = payload => (dispatch) => {
   dispatch(togglePreloaderAction(true));
 
@@ -93,6 +105,9 @@ export const toggleTodo = payload => (dispatch) => {
     });
 };
 
+/** загружает todos из стора
+ * @param  {Array} payload массив todos
+ */
 export const addTodos = () => (dispatch) => {
   dispatch(togglePreloaderAction(true));
   return axios.get('/api/getTodos')

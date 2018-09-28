@@ -69,7 +69,14 @@ const StyledButton = styled(Button)`
 
 `;
 
-
+/** Компонент Todo
+ * @param {Function} param.onDelete функция удаления задач из списка
+ * @param {Function} param.todonEditos функция редактирования задачи в списке
+ * @param {Function} param.onToggle функция выполения задачи в списке как выполеннная
+ * @param {Number} param.id id задачи
+ * @param {String} param.sttring название задачи
+ * @param {Boolean} param.completed состояние задачи
+ */
 class Todo extends React.Component {
   constructor(props) {
     super(props);
